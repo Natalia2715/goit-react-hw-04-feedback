@@ -1,0 +1,22 @@
+.options__list {
+  display: flex;
+  list-style: none;
+}
+
+.options__item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.options__btn {
+  padding: 8px 15px;
+  border-radius: 5px;
+  border-color: transparent;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 250ms linear;
+}
+
+.options__btn:hover {
+  transform: scale(0.8);
+}
