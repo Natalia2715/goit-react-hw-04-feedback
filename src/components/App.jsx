@@ -5,11 +5,11 @@ import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics/Statistics';
 import Notification from './Notification/Notification';
 
-const options = [
-  { id: 'id-1', label: 'Good', bgc: '#4de876' },
-  { id: 'id-2', label: 'Neutral', bgc: '#f0ee6c' },
-  { id: 'id-3', label: 'Bad', bgc: '#f03c3c' },
-];
+// const options = [
+//   { id: 'id-1', label: 'Good', bgc: '#4de876' },
+//   { id: 'id-2', label: 'Neutral', bgc: '#f0ee6c' },
+//   { id: 'id-3', label: 'Bad', bgc: '#f03c3c' },
+// ];
 
 export default class App extends Component {
   state = {
@@ -19,21 +19,10 @@ export default class App extends Component {
   };
 
   onLeaveFeedback = event => {
-    const item = event.currentTarget.textContent.toLowerCase();
-
-    if (item === 'good') {
-      this.setState(prevState => {
-        return { good: prevState.good + 1 };
-      });
-    } else if (item === 'neutral') {
-      this.setState(prevState => {
-        return { neutral: prevState.neutral + 1 };
-      });
-    } else if (item === 'bad') {
-      this.setState(prevState => {
-        return { bad: prevState.bad + 1 };
-      });
-    }
+    const item = event.currentTarget.textContent;
+    this.setState(prevState => {
+      return { [item]: prevState[item] + 1 };
+    });
   };
 
   countTotalFeedback() {
@@ -45,6 +34,7 @@ export default class App extends Component {
   }
 
   render() {
+    const options = Object.keys(this.state);
     return (
       <Section title="Please leave feedback">
         <FeedbackOptions

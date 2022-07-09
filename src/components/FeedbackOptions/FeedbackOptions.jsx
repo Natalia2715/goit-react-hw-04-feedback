@@ -7,14 +7,10 @@ export default class FeedbackOptions extends Component {
     const { options, onLeaveFeedback } = this.props;
     return (
       <ul className={styles.options__list}>
-        {options.map(({ id, label, bgc }) => (
-          <li key={id} className={styles.options__item}>
-            <button
-              className={styles.options__btn}
-              onClick={onLeaveFeedback}
-              style={{ backgroundColor: bgc }}
-            >
-              {label}
+        {options.map((option, index) => (
+          <li key={index} className={styles.options__item}>
+            <button className={styles.options__btn} onClick={onLeaveFeedback}>
+              {option}
             </button>
           </li>
         ))}
@@ -24,12 +20,6 @@ export default class FeedbackOptions extends Component {
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      bgc: PropTypes.string.isRequired,
-    })
-  ),
+  options: PropTypes.arrayOf(PropTypes.string.isRequired),
   onLeaveFeedback: PropTypes.func.isRequired,
 };
