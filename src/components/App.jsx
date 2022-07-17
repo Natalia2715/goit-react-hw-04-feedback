@@ -5,12 +5,6 @@ import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics/Statistics';
 import Notification from './Notification/Notification';
 
-// const options = [
-//   { id: 'id-1', label: 'Good', bgc: '#4de876' },
-//   { id: 'id-2', label: 'Neutral', bgc: '#f0ee6c' },
-//   { id: 'id-3', label: 'Bad', bgc: '#f03c3c' },
-// ];
-
 export default class App extends Component {
   state = {
     good: 0,
